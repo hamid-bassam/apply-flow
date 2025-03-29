@@ -30,6 +30,21 @@
     --chart-4: 258 30% 28%;
     --chart-5: 258 103% 75%;
     --radius: 0.5rem;
+
+    --success: 142 71% 45%;
+    --success-foreground: 144 100% 97%;
+
+    --info: 207 90% 54%;
+    --info-foreground: 210 100% 97%;
+
+    --warning: 43 96% 56%;
+    --warning-foreground: 35 100% 90%;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  * {
+    @apply border-border outline-ring/50;
   }
 
   .dark {
@@ -80,14 +95,20 @@
     --chart-4: 280 65% 60%;
 
     --chart-5: 340 75% 55%;
+
+    --success: 142 70% 35%;
+    --success-foreground: 144 80% 95%;
+
+    --info: 207 90% 44%;
+    --info-foreground: 210 100% 97%;
+
+    --warning: 43 96% 46%;
+    --warning-foreground: 35 100% 90%;
   }
 }
 
-@layer base {
+/* @layer base {
   * {
-    @apply border-border outline-ring/50;
+   
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+} */
