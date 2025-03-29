@@ -1,20 +1,62 @@
+"use client"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { Eye, Pencil, Trash2 } from "lucide-react"
+import { Plus, Sparkles, Star } from "lucide-react"
+import { Separator } from "../../../components/ui/separator"
+import { CardActionsDropdown } from "../CardActionsDropDown"
+import { Contact } from "./ContactPreview"
+import { ContactsSection } from "./ContactSection"
+import { OfferMetaBadges } from "./OfferMetaBadges"
+import { OfferMeta } from "./OfferMetaSummary"
 
-const tags = ["TT", "free", "TJM", "XP", "Team", "Start", "city", "proc"]
-const skills = [
-  { name: "React", selected: true },
-  { name: "Node.js", selected: true },
-  { name: "Tailwind", selected: true },
-  { name: "TypeScript", selected: false },
-  { name: "Prisma", selected: false },
-  { name: "Next.js", selected: false },
-  { name: "SQL", selected: false },
-  { name: "AWS", selected: false },
+
+const contacts: Contact[] = [
+  {
+    name: "Sophie R.",
+    role: "RH",
+    email: "sophie@recrutement.com",
+    phone: "06 12 34 56 78",
+    notes: "Très réactive, relancer le 5 avril",
+  },
+  {
+    name: "Youssef T.",
+    role: "Manager",
+    email: "yt@startup.io",
+    notes: "Très technique, discussion stack avancée",
+  },
+  {
+    name: "Marie L.",
+    role: "Manager",
+    email: "marie@tech.com",
+    notes: "A relancer le 10 avril",
+  }
+]
+const meta: OfferMeta = {
+  isFullRemote: true,
+  isFreelance: true,
+  tjm: 550,
+  experience: "3+ ans",
+  teamSize: "4 devs",
+  startDate: "Avril",
+  location: "100% Remote",
+  process: "RH + Test + Client",
+}
+type Skill = {
+  name: string
+  level: "core" | "plus" | "bonus"
+}
+
+const skills: Skill[] = [
+  { name: "React", level: "core" },
+  { name: "Next.js", level: "core" },
+  { name: "Node.js", level: "plus" },
+  { name: "TypeScript", level: "core" },
+  { name: "Tailwind", level: "plus" },
+  { name: "Prisma", level: "bonus" },
+  { name: "SQL", level: "bonus" },
 ]
 
 export function OfferCard() {
@@ -24,65 +66,60 @@ export function OfferCard() {
         <CardTitle className="text-lg">Titre du post</CardTitle>
 
         {/* Actions */}
-        <div className="flex items-center gap-1 text-muted-foreground">
-          <Button variant="ghost" size="icon" className="h-8 w-8" title="Voir">
-            <Eye className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8" title="Modifier">
-            <Pencil className="h-4 w-4" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-8 w-8 hover:bg-destructive/20 text-destructive"
-            title="Supprimer"
-          >
-            <Trash2 className="h-4 w-4" />
-          </Button>
-        </div>
+        {/* Dropdown actions */}
+        <CardActionsDropdown
+          onView={() => console.log("Voir")}
+          onEdit={() => console.log("Modifier")}
+          onDelete={() => console.log("Supprimer")}
+        />
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-4">
+      <CardContent className="flex flex-col gap-2">
         {/* Description */}
         <div className="text-sm text-muted-foreground">
           Courte description de la mission, son objectif, et l’environnement.
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="rounded-md px-3">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-
+        <OfferMetaBadges meta={meta} />
+        <Separator className="my-1" />
         {/* Skills */}
         <div className="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <Badge
-              key={skill.name}
-              className={cn(
-                "rounded-md px-3 transition-colors",
-                skill.selected
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground"
-              )}
-            >
-              {skill.name}
-            </Badge>
-          ))}
+          {skills.map((skill) => {
+            const icon =
+              skill.level === "core" ? <Star className="w-3 h-3 mr-1" />
+                : skill.level === "plus" ? <Plus className="w-3 h-3 mr-1" />
+                  : <Sparkles className="w-3 h-3 mr-1" />
+
+            return (
+              <Badge
+                key={skill.name}
+                variant="secondary"
+                className={cn(
+                  "text-xs px-2 py-1 rounded-full flex items-center gap-1",
+                  skill.level === "core" && "border border-primary/40 bg-secondary-foreground text-secondary hover:bg-secondary-foreground/80",
+                  skill.level === "plus" && "border border-muted ",
+                  skill.level === "bonus" && "opacity-70"
+                )}
+              >
+                {icon}
+                {skill.name}
+              </Badge>
+            )
+          })}
         </div>
 
         {/* Lien de l'offre */}
         <Button variant="outline" className="w-full">
-          Lien de l’offre
+          <a href="https://www.linkedin.com/jobs/view/1234567890" target="_blank" rel="noopener noreferrer">
+            <span className="text-sm">🔗 Lien de l’offre</span>
+
+          </a>
+
         </Button>
 
         {/* Contacts */}
-        <Button variant="ghost" className="w-full border border-border">
-          Contacts
-        </Button>
+        <ContactsSection contacts={contacts} />
 
         {/* Notes perso */}
         <Textarea
