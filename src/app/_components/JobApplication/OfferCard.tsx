@@ -61,7 +61,7 @@ const skills: Skill[] = [
 
 export function OfferCard() {
   return (
-    <Card className="bg-card text-card-foreground border border-border shadow-sm">
+    <Card className="w-full bg-card text-card-foreground border border-border shadow-sm">
       <CardHeader className="flex flex-row items-center  justify-between">
         <CardTitle className="text-lg">Titre du post</CardTitle>
 
