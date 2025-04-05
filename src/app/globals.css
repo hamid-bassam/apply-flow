@@ -39,6 +39,8 @@
 
     --warning: 43 96% 56%;
     --warning-foreground: 35 100% 90%;
+    --info-subtle: 200 50% 40%; /* cyan discret pour infos rapides sans distraire */
+    --success-subtle: 140 30% 40%; /* vert discret pour confirmations rapides */
   }
   body {
     @apply bg-background text-foreground;
