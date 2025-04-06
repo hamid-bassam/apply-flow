@@ -43,7 +43,8 @@
     --success-subtle: 140 30% 40%; /* vert discret pour confirmations rapides */
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    /* bg-muted  */
   }
   * {
     @apply border-border outline-ring/50;
