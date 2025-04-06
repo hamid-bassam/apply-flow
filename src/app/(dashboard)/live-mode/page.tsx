@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 
 import { Bookmark, Brain, Copy, Eye, HelpCircle, Key, MessageSquare, Search, SquareSplitHorizontal, ThumbsDown, ThumbsUp, Timer, UserCircle, Zap } from 'lucide-react';
 import { useState } from 'react';
+import { FloatingDock } from '../../../components/ui/floating-dock';
 import { Switch } from '../../../components/ui/switch';
 
 const sections = {
@@ -79,7 +80,7 @@ export default function Page() {
   const [timer, setTimer] = useState("00:00");
 
   return (
-    <div className="flex flex-col flex-1 ">
+    <div className="flex flex-col flex-1  ">
 
 
       <ResizablePanelGroup
@@ -89,7 +90,7 @@ export default function Page() {
         )}
       >
         {/* Quick Actions Panel */}
-        <ResizablePanel defaultSize={20} minSize={15} >
+        <ResizablePanel defaultSize={20} minSize={15} className='pt-3' >
           <div className="h-full p-4 rounded-lg  ">
             <div className="space-y-6">
               <div className="flex items-center gap-2">
@@ -134,11 +135,11 @@ export default function Page() {
 
         {/* Main Content */}
         <ResizablePanel defaultSize={50} minSize={20}>
-          <main className="h-full p-6 overflow-y-auto bg-card rounded-md">
-            <div className="flex items-center mb-6">
+          <main className="h-full p-6 overflow-y-auto bg-card  border-x rounded border-primary/50 space-y-[18px]">
+            <div className="flex items-center ">
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="flex items-center w-full p-2 text-sm text-muted-foreground border rounded-lg hover:bg-secondary"
+                className="flex items-center w-full p-2 text-sm text-muted-foreground border rounded-full hover:bg-primary/50"
               >
                 <Search className="w-4 h-4 mr-2" />
                 Rechercher... (Ctrl+K)
@@ -202,19 +203,23 @@ export default function Page() {
 
         {/* Notes Section */}
         <ResizablePanel defaultSize={30} minSize={20}>
-          <div className="h-full flex flex-col ">
-            <div className="flex justify-end gap-4 px-4 py-2 shadow  mb-2  rounded-t">
+          <div className="h-full flex flex-col pt-6 ">
+            <div className="flex justify-between gap-4 px-4  shadow   rounded-t">
               {/* bg-primary/20 */}
+              {/* Floating Dock */}
+              <FloatingDock items={dockItems} />
               {/* alignement */}
-              <div className="flex items-center gap-2">
-                <SquareSplitHorizontal className="h-4 w-4" />
-                {/* <span className="text-sm">Alignement</span> */}
-                <Switch checked={isRightAligned} onCheckedChange={setIsRightAligned} />
-              </div>
-              {/* focus */}
-              <div className="flex items-center gap-2">
-                <Eye className="h-4 w-4" />
-                <Switch checked={isFocusMode} onCheckedChange={setIsFocusMode} />
+              <div className="flex items-center">
+                <div className="flex items-center gap-2">
+                  <SquareSplitHorizontal className="h-4 w-4" />
+                  {/* <span className="text-sm">Alignement</span> */}
+                  <Switch checked={isRightAligned} onCheckedChange={setIsRightAligned} />
+                </div>
+                {/* focus */}
+                <div className="flex items-center gap-2">
+                  <Eye className="h-4 w-4" />
+                  <Switch checked={isFocusMode} onCheckedChange={setIsFocusMode} />
+                </div>
               </div>
             </div>
             <aside className="h-full p-4 flex flex-col ">
