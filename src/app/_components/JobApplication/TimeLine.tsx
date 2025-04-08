@@ -18,7 +18,7 @@ const timeline: TimelineItem[] = [
 
 export function Timeline() {
   return (
-    <div className="relative pl-6 pr-2">
+    <div className="relative pl-6 pr-2 pt-6">
       <ul className="space-y-6">
         {timeline.map((item, idx) => {
           const isLast = idx === timeline.length - 1

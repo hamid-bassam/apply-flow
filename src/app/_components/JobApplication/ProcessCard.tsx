@@ -15,8 +15,8 @@ const steps = [
 export function ProcessCard() {
   return (
     <Card className="bg-card text-card-foreground border border-border shadow-sm w-full max-w-sm">
-      <CardHeader>
-        <CardTitle className="text-center">Process de recrutement</CardTitle>
+      <CardHeader className="pt-4">
+        <CardTitle className="flex text-center items-center pt-1 h-9">Process de recrutement</CardTitle>
       </CardHeader>
 
       <CardContent className="flex flex-col gap-4">

@@ -54,7 +54,7 @@ export function ApplicationCardV2() {
 
   return (
     <Card className="bg-card text-card-foreground border border-border shadow-sm w-full max-w-md">
-      <CardHeader className="flex flex-row items-center justify-between">
+      <CardHeader className="flex flex-row items-center justify-between pt-4">
         <CardTitle className="text-lg">Suivi candidature</CardTitle>
 
         <div className="flex items-center gap-1 text-muted-foreground">

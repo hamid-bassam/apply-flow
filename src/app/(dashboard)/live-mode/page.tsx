@@ -55,11 +55,11 @@ const sections = {
 };
 
 const dockItems = [
-  { title: "Q&A", icon: <MessageSquare className="h-5 w-5 text-neutral-300" />, href: "#qa" },
-  { title: "Script", icon: <Brain className="h-5 w-5 text-neutral-300" />, href: "#script" },
-  { title: "Mots-clés", icon: <Key className="h-5 w-5 text-neutral-300" />, href: "#keywords" },
-  { title: "Recruteur", icon: <UserCircle className="h-5 w-5 text-neutral-300" />, href: "#recruiter" },
-  { title: "Questions", icon: <HelpCircle className="h-5 w-5 text-neutral-300" />, href: "#questions" },
+  { title: "Q&A", icon: <MessageSquare className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#qa" },
+  { title: "Script", icon: <Brain className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#script" },
+  { title: "Mots-clés", icon: <Key className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#keywords" },
+  { title: "Recruteur", icon: <UserCircle className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#recruiter" },
+  { title: "Questions", icon: <HelpCircle className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#questions" },
 ];
 
 const quickActions = [
@@ -135,7 +135,25 @@ export default function Page() {
 
         {/* Main Content */}
         <ResizablePanel defaultSize={50} minSize={20}>
-          <main className="h-full p-6 overflow-y-auto bg-card  border-x rounded border-primary/50 space-y-[18px]">
+          <main className="h-full p-6 px-2 overflow-y-auto bg-card  border-x rounded border-primary/50 space-y-[18px]">
+            <div className="flex  items-center justify-between gap-4">
+              <button
+                onClick={() => setIsSearchOpen(true)}
+                className="flex min-w-8 items-center flex-grow  p-2 text-xs text-muted-foreground border rounded-full hover:bg-primary/50 transition overflow-hidden text-ellipsis whitespace-nowrap"
+              >
+                <Search className="flex-shrink-0 w-4 h-4 mr-2 " />
+                {/* hidden if size is small */}
+                Rechercher... (Ctrl+K)
+              </button>
+
+              <div className="flex-shrink-0 flex-1 max-w-fit">
+                <FloatingDock items={dockItems} desktopClassName='px-2' />
+              </div>
+            </div>
+
+
+
+            {/* 
             <div className="flex items-center ">
               <button
                 onClick={() => setIsSearchOpen(true)}
@@ -145,6 +163,10 @@ export default function Page() {
                 Rechercher... (Ctrl+K)
               </button>
             </div>
+            <div className='w-fit '>
+
+              <FloatingDock items={dockItems} />
+            </div> */}
 
             <div className="space-y-4">
               {activeSection === 'qa' && (
@@ -202,18 +224,18 @@ export default function Page() {
         <ResizableHandle withHandle />
 
         {/* Notes Section */}
-        <ResizablePanel defaultSize={30} minSize={20}>
+        <ResizablePanel defaultSize={30} minSize={30}>
           <div className="h-full flex flex-col pt-6 ">
-            <div className="flex justify-between gap-4 px-4  shadow   rounded-t">
-              {/* bg-primary/20 */}
+            <div className="flex justify-between gap-4 px-4   rounded-t">
+              {/* bg-primary/20 shadow   */}
               {/* Floating Dock */}
               <FloatingDock items={dockItems} />
               {/* alignement */}
-              <div className="flex items-center">
-                <div className="flex items-center gap-2">
+              <div className="flex  items-center gap-2">
+                <div className="flex items-center gap-1">
                   <SquareSplitHorizontal className="h-4 w-4" />
                   {/* <span className="text-sm">Alignement</span> */}
-                  <Switch checked={isRightAligned} onCheckedChange={setIsRightAligned} />
+                  <Switch checked={isRightAligned} onCheckedChange={(checked) => setIsRightAligned(checked)} />
                 </div>
                 {/* focus */}
                 <div className="flex items-center gap-2">
