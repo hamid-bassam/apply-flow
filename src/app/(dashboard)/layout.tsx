@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <div className="flex flex-col flex-grow sm:pl-14   ">
         {/* sm:py-4  sm:pt-2 sm:gap-4 */}
         <AppHeader />
-        <main className="flex flex-col flex-grow     ">{children}</main>
+        <main className="flex flex-col flex-grow">{children}</main>
         {/* <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-background text-foreground">
           <div className="p-6 rounded-lg border border-border bg-card text-card-foreground shadow">
             🎉 Test dark mode with tokens
