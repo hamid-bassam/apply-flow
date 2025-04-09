@@ -63,3 +63,49 @@ export const quickActions = [
   { icon: Bookmark, label: "Marquer", active: false },
   { icon: Copy, label: "Copier Notes", action: "copy" },
 ];
+
+
+export const mockFrameworks = [
+  {
+    id: 'star',
+    name: 'STAR',
+    icon: '⭐️',
+    description: 'Situation, Task, Action, Result',
+    used: false,
+    saved: false,
+    steps: [
+      { title: 'Situation', placeholder: 'Décrivez le contexte...', value: '' },
+      { title: 'Task', placeholder: 'Quel était ton rôle / objectif ?', value: '' },
+      { title: 'Action', placeholder: 'Qu’as-tu fait concrètement ?', value: '' },
+      { title: 'Result', placeholder: 'Quel a été le résultat mesurable ?', value: '' },
+    ],
+  },
+  {
+    id: 'soar',
+    name: 'SOAR',
+    icon: '🦅',
+    description: 'Situation, Obstacle, Action, Result',
+    used: false,
+    saved: false,
+    steps: [
+      { title: 'Situation', placeholder: 'Quel était le contexte ?', value: '' },
+      { title: 'Obstacle', placeholder: 'Quel était le blocage rencontré ?', value: '' },
+      { title: 'Action', placeholder: 'Quelle a été ta solution ?', value: '' },
+      { title: 'Result', placeholder: 'Quel a été l’impact positif ?', value: '' },
+    ],
+  },
+  {
+    id: 'grow',
+    name: 'GROW',
+    icon: '🌱',
+    description: 'Goal, Reality, Options, Will',
+    used: false,
+    saved: false,
+    steps: [
+      { title: 'Goal', placeholder: 'Quel était l’objectif à atteindre ?', value: '' },
+      { title: 'Reality', placeholder: 'Quel était le point de départ ?', value: '' },
+      { title: 'Options', placeholder: 'Quelles solutions envisagées ?', value: '' },
+      { title: 'Will', placeholder: 'Qu’as-tu mis en place ?', value: '' },
+    ],
+  },
+];

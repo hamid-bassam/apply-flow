@@ -9,9 +9,10 @@ import { Brain, HelpCircle, Key, MessageSquare, UserCircle } from 'lucide-react'
 import { Fragment, useState } from 'react';
 import { MainPanel } from '../../_components/live-mode/MainPanel';
 import { NotesPanel } from '../../_components/live-mode/NotesPanel';
-import { ToolkitPanel } from '../../_components/live-mode/ToolkitPanel';
 
 import { useLayoutStore } from '@/features/live-session/store/LayoutStore';
+import { FrameworkCardsPanel } from '../../_components/live-mode/FrameworkCardsPanel';
+import { FrameworkViewerOverlay } from '../../_components/live-mode/FrameworkViewerOverlay';
 
 
 const dockItems = [
@@ -46,7 +47,7 @@ export default function Page() {
           <Fragment key={panel.id}>
             <ResizablePanel defaultSize={panel.defaultSize} minSize={panel.minSize} className={cn(panel.className, "")}>
               {panel.type === 'main' && <MainPanel />}
-              {panel.type === 'toolkit' && <ToolkitPanel />}
+              {panel.type === 'toolkit' && <FrameworkCardsPanel />}
               {panel.type === 'notes' && <NotesPanel />}
             </ResizablePanel>
             {index !== layout.length - 1 && <ResizableHandle withHandle />}
@@ -54,7 +55,7 @@ export default function Page() {
 
         ))}
       </ResizablePanelGroup>
-
+      <FrameworkViewerOverlay />
 
 
       {/* Search Dialog */}
