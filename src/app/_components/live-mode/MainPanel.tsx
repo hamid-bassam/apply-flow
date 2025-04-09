@@ -1,61 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { CommandDialog, CommandInput, CommandList } from '@/components/ui/command';
 import { Brain, HelpCircle, Key, MessageSquare, Search, UserCircle } from 'lucide-react';
-import { useState } from 'react';
-import { FloatingDock } from '../../../components/ui/floating-dock';
+
+import { useMainPanelStore } from '../../../features/live-session/store/main-panel/MainPanelStore';
+import { FloatingStateNav } from './FloatingStateNav';
 export type MainPanelProps = {
   main?: string;
 };
 
 const dockItems = [
-  { title: "Q&A", icon: <MessageSquare className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#qa" },
-  { title: "Script", icon: <Brain className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#script" },
-  { title: "Mots-clés", icon: <Key className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#keywords" },
-  { title: "Recruteur", icon: <UserCircle className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#recruiter" },
-  { title: "Questions", icon: <HelpCircle className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#questions" },
+  { title: "Q&A", icon: <MessageSquare className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#qa", _key: 'qa' },
+  { title: "Script", icon: <Brain className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#script", _key: 'script' },
+  { title: "Mots-clés", icon: <Key className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#keywords", _key: 'keywords' },
+  { title: "Recruteur", icon: <UserCircle className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#recruiter", _key: 'recruiter' },
+  { title: "Questions", icon: <HelpCircle className="h-5 w-5 text-secondary-foreground hover:text-secondary" />, href: "#questions", _key: 'questions' },
 ];
-// const sections = {
-//   qa: {
-//     title: 'Q&A',
-//     icon: MessageSquare,
-//     content: [
-//       { q: 'Parle-moi de toi', a: 'Développeur fullstack passionné avec 5 ans d\'expérience...' },
-//       { q: 'Pourquoi notre entreprise ?', a: 'Votre focus sur l\'innovation et l\'impact social...' },
-//       { q: 'Plus grand défi technique ?', a: 'Migration d\'une architecture monolithique vers des microservices...' },
-//     ]
-//   },
-//   script: {
-//     title: 'Script',
-//     icon: Brain,
-//     content: [
-//       'Introduction concise et impactante en 2-3 phrases',
-//       'Points clés du parcours professionnel',
-//       'Réalisations techniques majeures'
-//     ]
-//   },
-//   keywords: {
-//     title: 'Mots-clés',
-//     icon: Key,
-//     content: ['TypeScript', 'React', 'Node.js', 'Architecture', 'CI/CD', 'Cloud Native']
-//   },
-//   recruiter: {
-//     title: 'Infos Recruteur',
-//     icon: UserCircle,
-//     content: {
-//       name: 'Alex Dupont',
-//       role: 'Lead Developer',
-//       company: 'Doctolib'
-//     }
-//   },
-//   questions: {
-//     title: 'Questions à poser',
-//     icon: HelpCircle,
-//     content: [
-//       'Structure de l\'équipe actuelle ?',
-//       'Stack technique détaillée ?',
-//       'Prochaines étapes du recrutement ?'
-//     ]
-//   }
-// };
 
 // 📁 /features/toolkit/mock/sections.ts
 
@@ -126,8 +85,10 @@ export const sections = {
 
 export type SectionKey = keyof typeof sections;
 export const MainPanel = (props: MainPanelProps) => {
-  const [activeSection, setActiveSection] = useState('qa');
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  // const [activeSectionKey, setActiveSection] = useState('qa');
+  // const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const { activeSectionKey, isSearchOpen, setIsSearchOpen, setActiveSectionKey, openSearch, closeSearch, toggleSearch } = useMainPanelStore();
 
   return (
     <div className="relative bg-card border-x rounded border-primary/50 overflow-y-auto h-full" >
@@ -136,7 +97,7 @@ export const MainPanel = (props: MainPanelProps) => {
         <div className="flex p-2 z-10 top-0 items-center justify-between gap-4 bg-primary/5   " >
           {/* md:backdrop-filter-none  */}
           <button
-            onClick={() => setIsSearchOpen(true)}
+            onClick={openSearch}
             className="flex min-w-8 items-center flex-grow p-2 text-xs text-muted-foreground border rounded-full hover:bg-card transition overflow-hidden text-ellipsis whitespace-nowrap"
           >
             <Search className="flex-shrink-0 w-4 h-4 mr-2 " />
@@ -145,13 +106,13 @@ export const MainPanel = (props: MainPanelProps) => {
           </button>
 
           <div className="flex-shrink-0 flex-1 max-w-fit">
-            <FloatingDock items={dockItems} desktopClassName='px-2' />
+            <FloatingStateNav items={dockItems} desktopClassName='px-2' />
           </div>
         </div>
       </div>
 
       <div className='space-y-3 p-3 max-h-[calc(100vh-7.5rem)]'>
-        {activeSection === 'qa' && (
+        {activeSectionKey === 'qa' && (
           <>
             {sections.qa.content.map((item, i) => (
               <div key={i} className="p-4 rounded-lg bg-primary/20">
@@ -162,7 +123,7 @@ export const MainPanel = (props: MainPanelProps) => {
           </>
         )}
 
-        {activeSection === 'script' && (
+        {activeSectionKey === 'script' && (
           <div className="space-y-4">
             {sections.script.content.map((item, i) => (
               <div key={i} className="p-4 rounded-lg bg-primary/80">
@@ -172,7 +133,7 @@ export const MainPanel = (props: MainPanelProps) => {
           </div>
         )}
 
-        {activeSection === 'keywords' && (
+        {activeSectionKey === 'keywords' && (
           <div className="flex flex-wrap gap-2">
             {sections.keywords.content.map((keyword, i) => (
               <span key={i} className="px-3 py-1 rounded-full bg-secondary text-sm">
@@ -182,7 +143,7 @@ export const MainPanel = (props: MainPanelProps) => {
           </div>
         )}
 
-        {activeSection === 'recruiter' && (
+        {activeSectionKey === 'recruiter' && (
           <div className="p-6 rounded-lg bg-primary/20">
             <h3 className="text-lg font-medium mb-2">{sections.recruiter.content.name}</h3>
             <p className="text-sm text-muted-foreground">{sections.recruiter.content.role}</p>
@@ -190,7 +151,7 @@ export const MainPanel = (props: MainPanelProps) => {
           </div>
         )}
 
-        {activeSection === 'questions' && (
+        {activeSectionKey === 'questions' && (
           <div className="space-y-3">
             {sections.questions.content.map((question, i) => (
               <div key={i} className="p-4 rounded-lg bg-primary/20">
@@ -200,6 +161,14 @@ export const MainPanel = (props: MainPanelProps) => {
           </div>
         )}
       </div>
-    </div>
+
+      {/* Search Dialog */}
+      <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} >
+        <CommandInput placeholder="Rechercher dans tous les contenus..." />
+        <CommandList className="max-h-[300px] overflow-y-auto">
+          {/* La logique de recherche sera implémentée ici */}
+        </CommandList>
+      </CommandDialog >
+    </div >
   );
 };

@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent } from '@/components/ui/card';
-import { useFrameworkStore } from '@/features/live-session/store/FrameworkStore';
+import { useFrameworkStore } from '@/features/live-session/store/toolkit-panel/FrameworkStore';
 import { cn } from '@/lib/utils';
 import { BookOpenCheck, CheckCircle } from 'lucide-react';
 

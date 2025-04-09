@@ -1,5 +1,5 @@
 'use client';
-import { useFrameworkStore } from "@/features/live-session/store/FrameworkStore";
+import { useFrameworkStore } from "@/features/live-session/store/toolkit-panel/FrameworkStore";
 import { Bookmark, Check, X } from "lucide-react";
 
 export const FrameworkViewerOverlay = () => {

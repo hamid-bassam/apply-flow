@@ -1,52 +1,68 @@
 import { Bookmark, Brain, Copy, HelpCircle, Key, MessageSquare, ThumbsDown, ThumbsUp, Timer, UserCircle } from "lucide-react";
-
 export const sections = {
   qa: {
     title: 'Q&A',
     icon: MessageSquare,
     content: [
-      { q: 'Parle-moi de toi', a: 'Développeur fullstack passionné avec 5 ans d\'expérience...' },
-      { q: 'Pourquoi notre entreprise ?', a: 'Votre focus sur l\'innovation et l\'impact social...' },
-      { q: 'Plus grand défi technique ?', a: 'Migration d\'une architecture monolithique vers des microservices...' },
-    ]
+      { q: 'Peux-tu te présenter ?', a: "Je suis développeur fullstack spécialisé en JavaScript/TypeScript avec 5 années d'expérience, principalement sur des architectures React et Node.js. J'ai travaillé dans des contextes startup et scale-up, ce qui m'a permis de m'adapter à des environnements en constante évolution." },
+      { q: "Pourquoi postules-tu chez nous ?", a: "Parce que vous travaillez sur des sujets d’impact social fort avec une vraie exigence tech. J'apprécie aussi votre stack moderne et votre focus produit utilisateur." },
+      { q: "Quel a été ton plus grand défi technique ?", a: "J’ai dirigé la migration d’un monolithe PHP vers une architecture microservices, avec une scalabilité horizontale via Kubernetes. Cela a nécessité coordination d’équipe, mise en place d’un CI/CD avancé, et refonte progressive sans downtime." },
+
+      { q: "Pourquoi postules-tu chez nous ?", a: "Parce que vous travaillez sur des sujets d’impact social fort avec une vraie exigence tech. J'apprécie aussi votre stack moderne et votre focus produit utilisateur." },
+      { q: "Quel a été ton plus grand défi technique ?", a: "J’ai dirigé la migration d’un monolithe PHP vers une architecture microservices, avec une scalabilité horizontale via Kubernetes. Cela a nécessité coordination d’équipe, mise en place d’un CI/CD avancé, et refonte progressive sans downtime." },
+    ],
   },
   script: {
     title: 'Script',
     icon: Brain,
     content: [
-      'Introduction concise et impactante en 2-3 phrases',
-      'Points clés du parcours professionnel',
-      'Réalisations techniques majeures'
-    ]
+      '✅ Ouverture (30s) : Bonjour, merci pour cet échange. Je suis ravi d’être là.',
+      "🚀 Présentation synthétique : Je suis développeur fullstack JS depuis 5 ans, j’ai travaillé dans 3 contextes différents allant de la startup à l’ETI. J’ai une appétence pour l’architecture, le produit et le mentoring.",
+      "🎯 Exemples concrets : Migration monolithe > microservices, mise en place de tests E2E, coaching de juniors, amélioration de la CI.",
+      "🔁 Conclusion / Questions / Disponibilité : Je suis ouvert à vos questions et disponible rapidement.",
+    ],
   },
   keywords: {
     title: 'Mots-clés',
     icon: Key,
-    content: ['TypeScript', 'React', 'Node.js', 'Architecture', 'CI/CD', 'Cloud Native']
+    content: [
+      'TypeScript',
+      'React.js',
+      'Node.js',
+      'Prisma',
+      'CI/CD',
+      'Clean Architecture',
+      'Next.js',
+      'Docker',
+      'AWS',
+    ],
   },
   recruiter: {
     title: 'Infos Recruteur',
     icon: UserCircle,
-    content: [{
+    content: {
       name: 'Alex Dupont',
-      role: 'Lead Developer',
-      company: 'Doctolib'
-    }, {
-      name: 'Alex Dupont',
-      role: 'Lead Developer',
-      company: 'Doctolib'
-    }]
+      role: 'Engineering Manager',
+      company: 'Doctolib',
+    },
   },
   questions: {
     title: 'Questions à poser',
     icon: HelpCircle,
     content: [
-      'Structure de l\'équipe actuelle ?',
-      'Stack technique détaillée ?',
-      'Prochaines étapes du recrutement ?'
-    ]
-  }
-};
+      "Comment votre équipe gère-t-elle la dette technique ?",
+      "Quelles sont les perspectives d’évolution pour ce poste ?",
+      "Comment s’articule la collaboration entre produit, design et tech chez vous ?",
+      "Avez-vous des rituels d’équipe ou du temps dédié à la veille ?",
+      "Y a-t-il des challenges techniques en cours (scalabilité, refonte...) ?",
+      "Comment votre équipe gère-t-elle la dette technique ?",
+      "Quelles sont les perspectives d’évolution pour ce poste ?",
+      "Comment s’articule la collaboration entre produit, design et tech chez vous ?",
+      "Avez-vous des rituels d’équipe ou du temps dédié à la veille ?",
+      "Y a-t-il des challenges techniques en cours (scalabilité, refonte...) ?",
+    ],
+  },
+} as const;
 
 export const dockItems = [
   { title: "Q&A", icon: <MessageSquare className="h-5 w-5 text-neutral-300" />, href: "#qa" },

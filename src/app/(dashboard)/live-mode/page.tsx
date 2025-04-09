@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
-import { CommandDialog, CommandInput, CommandList } from '@/components/ui/command';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { cn } from '@/lib/utils';
 
@@ -58,13 +57,7 @@ export default function Page() {
       <FrameworkViewerOverlay />
 
 
-      {/* Search Dialog */}
-      <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-        <CommandInput placeholder="Rechercher dans tous les contenus..." />
-        <CommandList className="max-h-[300px] overflow-y-auto">
-          {/* La logique de recherche sera implémentée ici */}
-        </CommandList>
-      </CommandDialog>
+
     </div>
   );
 }
