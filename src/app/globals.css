@@ -4,7 +4,7 @@
 
 @layer base {
   /* Global Styles */
-  :root {
+  /* :root {
     --background: 251 48% 13%;
     --foreground: 251 38% 83%;
     --muted: 251 12% 17%;
@@ -40,16 +40,78 @@
     --warning: 43 96% 56%;
     --warning-foreground: 35 100% 90%;
     --info-subtle: 200 50% 40%; /* cyan discret pour infos rapides sans distraire */
-    --success-subtle: 140 30% 40%; /* vert discret pour confirmations rapides */
-  }
-  body {
+  /* --success-subtle: 140 30% 40%; /* vert discret pour confirmations rapides * */
+  /* }  */
+  /* body {
     @apply text-foreground;
     /* bg-muted  */
-  }
+  /* }
   * {
     @apply border-border outline-ring/50;
+  } */
+
+  :root {
+    --background: 251 56% 97%; /* fond doux avec une teinte violette pastel */
+    --foreground: 251 38% 14%; /* texte principal violet/gris très foncé */
+
+    --muted: 251 20% 91%; /* éléments secondaires, gris légèrement violet */
+    --muted-foreground: 251 14% 38%;
+
+    --popover: 251 48% 100%;
+    --popover-foreground: 251 38% 14%;
+
+    --card: 251 48% 95%;
+    --card-foreground: 251 38% 14%;
+
+    --border: 251 38% 88%;
+    --input: 251 38% 92%;
+
+    /* même couleur principale saturée */
+    /* --primary: 258 100% 50%;  */
+    --primary: 228 89% 67%;
+    --primary-foreground: 258 100% 98%;
+
+    --secondary: 258 40% 88%;
+    --secondary-foreground: 258 40% 22%;
+
+    --accent: 251 40% 88%;
+    --accent-foreground: 251 40% 20%;
+
+    --destructive: 7 87% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 258 100% 45%;
+
+    --chart-1: 258 100% 45%;
+    --chart-2: 258 30% 55%;
+    --chart-3: 251 48% 60%;
+    --chart-4: 258 30% 58%;
+    --chart-5: 258 103% 40%;
+
+    --success: 142 60% 35%;
+    --success-foreground: 144 100% 95%;
+    --info: 207 90% 44%;
+    --info-foreground: 210 100% 10%;
+    --warning: 43 96% 56%;
+    --warning-foreground: 35 100% 15%;
+
+    --info-subtle: 200 50% 92%;
+    --success-subtle: 140 30% 91%;
+
+    --radius: 0.5rem;
   }
 
+  body {
+    @apply text-foreground;
+    background-color: hsl(var(--background));
+    background-image: radial-gradient(
+      ellipse 20% 80% at 50% -20%,
+      rgba(120, 119, 198, 0.15),
+      rgba(255, 255, 255, 0)
+    );
+    background-blend-mode: overlay;
+  }
+  /* 
   .dark {
     --background: 20 14.3% 4.1%;
 
@@ -107,6 +169,63 @@
 
     --warning: 43 96% 46%;
     --warning-foreground: 35 100% 90%;
+  } */
+
+  .dark {
+    --background: 251 48% 8%;
+    --foreground: 251 38% 95%;
+
+    --card: 251 48% 10%;
+    --card-foreground: 251 38% 90%;
+
+    --popover: 251 48% 9%;
+    --popover-foreground: 251 38% 93%;
+
+    --primary: 258 100% 75%;
+    --primary-foreground: 258 100% 15%;
+
+    --secondary: 258 30% 25%;
+    --secondary-foreground: 258 30% 85%;
+
+    --muted: 251 12% 14%;
+    --muted-foreground: 251 12% 67%;
+
+    --accent: 251 48% 28%;
+    --accent-foreground: 251 48% 88%;
+
+    --destructive: 7 87% 60%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 251 38% 18%;
+    --input: 251 38% 21%;
+    --ring: 258 100% 75%;
+
+    --chart-1: 258 100% 75%;
+    --chart-2: 258 30% 25%;
+    --chart-3: 251 48% 28%;
+    --chart-4: 258 30% 28%;
+    --chart-5: 258 103% 75%;
+
+    --success: 142 70% 35%;
+    --success-foreground: 144 80% 95%;
+    --info: 207 90% 44%;
+    --info-foreground: 210 100% 97%;
+    --warning: 43 96% 46%;
+    --warning-foreground: 35 100% 90%;
+
+    /* Subtle infos */
+    --info-subtle: 200 50% 40%;
+    --success-subtle: 140 30% 40%;
+  }
+  .dark body {
+    @apply text-foreground;
+    background-color: hsl(var(--background));
+    background-image: radial-gradient(
+      ellipse 20% 80% at 50% -20%,
+      rgba(120, 119, 198, 0.3),
+      rgba(255, 255, 255, 0)
+    );
+    background-blend-mode: overlay;
   }
 }
 

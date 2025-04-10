@@ -91,9 +91,9 @@ export const MainPanel = (props: MainPanelProps) => {
   const { activeSectionKey, isSearchOpen, setIsSearchOpen, setActiveSectionKey, openSearch, closeSearch, toggleSearch } = useMainPanelStore();
 
   return (
-    <div className="relative bg-card border-x rounded border-primary/50 overflow-y-auto h-full" >
+    <div className="relative bg-card/50 border-x rounded border-primary/50 overflow-y-auto h-full" >
       <div className='sticky top-0' >
-        <div className="absolute inset-0 z-[-1] bg-black blur rounded-t-lg shadow-md border-b border-border" />
+        <div className="absolute inset-0 z-[-1] bg-white/90 dark:bg-black blur rounded-t-lg shadow-md border-b border-border" />
         <div className="flex p-2 z-10 top-0 items-center justify-between gap-4 bg-primary/5   " >
           {/* md:backdrop-filter-none  */}
           <button
