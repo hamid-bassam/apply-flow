@@ -9,8 +9,8 @@ const fadeIn = {
 };
 const LandingPage = () => {
   return (
-    <motion.div initial="hidden" animate="visible" exit={{ opacity: 0 }} className="relative min-h-screen bg-background text-foreground">
-      {/* Navigation Bar */}
+    <motion.div initial="hidden" animate="visible" exit={{ opacity: 0 }} className="relative min-h-screen  text-foreground bg-primary/10 dark:bg-purple-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
+      {/* Navigation Bar */}bg-background
       <header className="absolute top-0 w-full px-6 py-4 flex items-center justify-between z-20 bg-black/40 backdrop-blur-md shadow-md">
         <div className="text-xl font-bold tracking-wider uppercase">ApplyFlow</div>
         <nav className="space-x-6 text-sm hidden md:flex">
