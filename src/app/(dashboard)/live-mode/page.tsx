@@ -11,7 +11,7 @@ import { NotesPanel } from '../../_components/live-mode/NotesPanel';
 
 import { useLayoutStore } from '@/features/live-session/store/LayoutStore';
 import { FrameworkViewerOverlay } from '../../_components/live-mode/FrameworkViewerOverlay';
-import ToolkitOverviewPanel from "../../_components/live-mode/HomeToolkitPanel";
+import ToolkitOverviewPanel from "../../_components/live-mode/toolkit-panel/HomeToolkitPanel";
 
 
 const dockItems = [

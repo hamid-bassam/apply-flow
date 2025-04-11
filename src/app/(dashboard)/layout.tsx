@@ -1,7 +1,7 @@
 
 import { ReactNode } from "react";
-import { AppHeader } from "../_components/Header/AppHeader";
-import { SideMenu } from "../_components/NavigationMenu/SideMenu";
+import { AppHeader } from "../_components/header/AppHeader";
+import { SideMenu } from "../_components/naviation-menu/SideMenu";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (

@@ -1,7 +1,7 @@
-import { ApplicationCardV2 } from "../../_components/JobApplication/ApplicationCardV2";
-import { OfferCard } from "../../_components/JobApplication/OfferCard";
-import { ProcessCard } from "../../_components/JobApplication/ProcessCard";
-import { Timeline } from "../../_components/JobApplication/TimeLine";
+import { ApplicationCardV2 } from "../../_components/job-application/ApplicationCardV2";
+import { OfferCard } from "../../_components/job-application/OfferCard";
+import { ProcessCard } from "../../_components/job-application/ProcessCard";
+import { Timeline } from "../../_components/job-application/TimeLine";
 
 
 export default function Page() {
