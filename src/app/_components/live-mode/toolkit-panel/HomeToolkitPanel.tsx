@@ -46,7 +46,7 @@ const tools = [
 export default function ToolkitOverviewPanel() {
   return (
     <motion.div
-      className="p-4 space-y-4 max-h-[calc(100vh-3.5rem)] overflow-y-auto"
+      className="p-4 space-y-6 max-h-[calc(100vh-3.5rem)] overflow-y-auto"
       initial="hidden"
       animate="visible"
       variants={{
