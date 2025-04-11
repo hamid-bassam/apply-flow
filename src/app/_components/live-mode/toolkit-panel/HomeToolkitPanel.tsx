@@ -63,7 +63,7 @@ export default function ToolkitOverviewPanel() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className="flex items-center gap-3"
       >
-        <div className="flex flex-shrink-0 items-center justify-center w-7 h-7 shadow shadow-black  rounded-full bg-primary/10 text-primary border border-primary/30">
+        <div className="flex flex-shrink-0 items-center justify-center w-7 h-7 shadow-sm shadow-black dark:shadow-white/50 rounded-full bg-primary/10 text-primary border border-primary/30">
           <LayoutDashboard className='w-4 h-4 ' />
         </div>
         <h2 className="text-lg font-semibold text-foreground">
