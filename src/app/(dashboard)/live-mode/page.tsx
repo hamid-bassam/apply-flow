@@ -12,6 +12,7 @@ import { NotesPanel } from '../../_components/live-mode/NotesPanel';
 import { useLayoutStore } from '@/features/live-session/store/LayoutStore';
 import { FrameworkViewerOverlay } from '../../_components/live-mode/FrameworkViewerOverlay';
 import QuickTimerPanel from "../../_components/live-mode/toolkit-panel/QuickTimerPanel";
+import ToolkitOverviewPanel from "../../_components/live-mode/toolkit-panel/HomeToolkitPanel";
 
 
 const dockItems = [
@@ -47,7 +48,7 @@ export default function Page() {
             <ResizablePanel defaultSize={panel.defaultSize} minSize={panel.minSize} className={cn(panel.className, "@container")}>
               {panel.type === 'main' && <MainPanel />}
               {/* {panel.type === 'toolkit' && <FrameworkCardsPanel />} */}
-              {panel.type === 'toolkit' && <QuickTimerPanel />}
+              {panel.type === 'toolkit' && <ToolkitOverviewPanel />}
 
               {panel.type === 'notes' && <NotesPanel />}
             </ResizablePanel>
